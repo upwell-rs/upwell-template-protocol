@@ -19,7 +19,7 @@ tooling = ["upwell-app/tooling"]
 upwell-app = {{ upwell_app_dependency }}
 thiserror = "2"
 {% if macro_crate %}
-upwell = {{ upwell_dependency }}
+upwell = {{ upwell_base_dependency }}
 {{ crate_name }}_macros = { package = "{{ project-name }}-macros", path = "macros" }
 {% endif %}
 
