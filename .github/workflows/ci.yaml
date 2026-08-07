@@ -1,0 +1,19 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  template:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-generate@0.23.14
+      - run: cargo generate --path . --name example-protocol --define macro_crate=false
+      - run: cargo generate --path . --name example-protocol-macros --define macro_crate=true
+      - run: cargo fmt --all --manifest-path example-protocol/Cargo.toml --check
+      - run: cargo fmt --all --manifest-path example-protocol-macros/Cargo.toml --check

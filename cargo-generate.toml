@@ -1,0 +1,12 @@
+[template]
+cargo_generate_version = ">=0.23.14"
+
+[placeholders]
+macro_crate = { type = "bool", prompt = "Generate a companion proc-macro crate?", default = false }
+upwell_dependency = { type = "string", prompt = "Upwell dependency", default = "{ version = \"0.20\", default-features = false }" }
+upwell_app_dependency = { type = "string", prompt = "Upwell application dependency", default = "{ version = \"0.20\", default-features = false }" }
+upwell_macros_core_dependency = { type = "string", prompt = "Upwell macros-core dependency", default = "{ version = \"0.20\", default-features = false }" }
+upwell_version = { type = "string", prompt = "Upwell version", default = "0.20.0" }
+
+[conditional.'macro_crate == false']
+ignore = ["macros"]

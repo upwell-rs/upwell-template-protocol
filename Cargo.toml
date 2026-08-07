@@ -1,0 +1,30 @@
+[package]
+name = "{{ project-name }}"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.94.1"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+{% if macro_crate %}
+[workspace]
+members = ["macros"]
+resolver = "3"
+{% endif %}
+
+[features]
+default = []
+tooling = ["upwell-app/tooling"]
+
+[dependencies]
+upwell-app = {{ upwell_app_dependency }}
+thiserror = "2"
+{% if macro_crate %}
+upwell = {{ upwell_dependency }}
+{{ crate_name }}_macros = { package = "{{ project-name }}-macros", path = "macros" }
+{% endif %}
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt"] }
+
+[lints.rust]
+unsafe_code = "forbid"

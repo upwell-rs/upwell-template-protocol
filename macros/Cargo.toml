@@ -1,0 +1,17 @@
+[package]
+name = "{{ project-name }}-macros"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.94.1"
+license = "MIT OR Apache-2.0"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+upwell-macros-core = {{ upwell_macros_core_dependency }}
+proc-macro2 = "1"
+syn = { version = "2", features = ["full"] }
+
+[lints.rust]
+unsafe_code = "forbid"
