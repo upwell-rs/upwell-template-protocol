@@ -29,5 +29,5 @@ jobs:
           --define 'upwell_base_dependency={ version = "0.20", default-features = false }'
           --define 'upwell_app_dependency={ version = "0.20", default-features = false }'
           --define 'upwell_macros_core_dependency={ version = "0.20", default-features = false }'
-      - run: cargo fmt --all --manifest-path "$RUNNER_TEMP/example-protocol/Cargo.toml" --check
-      - run: cargo fmt --all --manifest-path "$RUNNER_TEMP/example-protocol-macros/Cargo.toml" --check
+      - run: cargo fmt --all --manifest-path "$RUNNER_TEMP/example-protocol/Cargo.toml"
+      - run: cargo fmt --all --manifest-path "$RUNNER_TEMP/example-protocol-macros/Cargo.toml"

@@ -16,8 +16,7 @@ impl upwell_app::ProtocolDefinition for ExampleProtocol {
 
     const ID: upwell_app::ProtocolId =
         upwell_app::namespaced_id!(upwell_app::ProtocolId, "{{ crate_name }}/protocol");
-    const SCOPE_TOPOLOGY: upwell_app::ScopeTopology =
-        upwell_app::ScopeTopology::new(&BOUNDARIES);
+    const SCOPE_TOPOLOGY: upwell_app::ScopeTopology = upwell_app::ScopeTopology::new(&BOUNDARIES);
 
     fn register(&self, _registry: &mut upwell_app::AppRegistry) {}
 
@@ -35,10 +34,7 @@ impl upwell_app::PreparedProtocol for PreparedExampleProtocol {
     type Runtime = crate::ExampleRuntime;
     type Error = crate::Error;
 
-    fn build(
-        self,
-        _runtime: &upwell_app::AppRuntime,
-    ) -> Result<Self::Runtime, Self::Error> {
+    fn build(self, _runtime: &upwell_app::AppRuntime) -> Result<Self::Runtime, Self::Error> {
         Ok(crate::ExampleRuntime::new(self.application))
     }
 

@@ -11,12 +11,11 @@ impl ExampleRuntime {
 impl upwell_app::ProtocolRuntime for ExampleRuntime {
     type Error = crate::Error;
 }
-
-{% if macro_crate %}
+{% if macro_crate -%}
 #[crate::protocol_component(by_value)]
 #[derive(Clone)]
 pub struct ProtocolState;
-{% endif %}
+{% endif -%}
 
 impl upwell_app::Serve<()> for ExampleRuntime {
     async fn serve(
