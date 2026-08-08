@@ -14,4 +14,4 @@ proc-macro2 = "1"
 syn = { version = "2", features = ["full"] }
 
 [lints.rust]
-unsafe_code = "forbid"
+unsafe_code = "deny"

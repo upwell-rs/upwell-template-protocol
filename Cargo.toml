@@ -27,4 +27,4 @@ upwell = {{ upwell_base_dependency }}
 tokio = { version = "1", features = ["macros", "rt"] }
 
 [lints.rust]
-unsafe_code = "forbid"
+unsafe_code = "deny"
